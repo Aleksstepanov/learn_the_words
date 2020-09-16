@@ -1,15 +1,44 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDom from 'react-dom';
 import './index.css';
-import App from './App';
+import HeaderBlock from './components/HeaderBlocks/HeaderBlock';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const AppList = () => {
+  const items = ['Item 1', 'Item 2', 'Item 3'];
+  return (
+    <ul>
+      { items.map((item) => <li>{ item }</li>)}
+      <hr></hr>
+      <li>{ items[0] }</li>
+      <li>{ items[1] }</li>
+    </ul>
+  )
+}
+const AppHeader = () => {
+   return (
+    <>
+      <HeaderBlock />
+      <h1 className="header">Hallo World</h1>
+    </>
+    
+  )
+}
+const AppInput = () => {
+  const placeholder = 'Search user...'
+  return (
+    <label>
+      <input placeholder={ placeholder }></input>
+    </label>
+  )
+}
+const App = () => {
+  return (
+    <React.Fragment>
+    <AppInput />
+    <AppHeader />
+    <AppList />
+  </React.Fragment>
+  )
+}
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+ReactDom.render(<App />, document.getElementById('root'));
