@@ -4,7 +4,7 @@ import menuitem from '../../Data/menuItem';
 import './Lang.scss';
 
 const Lang = () => {
-    let selectLang = true;
+    let selectLang = false;
     const change = () => {
         selectLang = !selectLang;
     }
@@ -17,7 +17,7 @@ const Lang = () => {
                 Eng
                 </label>
             </div>
-            {selectLang ? <Menu {...menuitem.menuEng}/> : console.log('eng')}
+            {selectLang ? <Menu {...menuitem.menuEng}/> : <Menu {...menuitem.menuRus}/>}
         </>
   )
 }
