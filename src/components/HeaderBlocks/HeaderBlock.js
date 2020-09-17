@@ -1,7 +1,6 @@
 import React from 'react';
 import s from './HeaderBlock.module.scss'
-import Menu from '../Menu/Menu';
-import menuitem from '../../Data/menuItem';
+import Lang from '../Lang/Lang';
 
 const HeaderBlock = ({ title, highBackground = false}) => {
     const styleCover = highBackground ? { backgroundImage: 'none'} : {};
@@ -9,7 +8,7 @@ const HeaderBlock = ({ title, highBackground = false}) => {
         <>
             <div className={s.cover} style = {styleCover}>
             <div className={s.wrap}>
-                <Menu {...menuitem}/>
+                <Lang />
                 <h1 className={s.header}>{title}</h1>
                 <p className={s.descr}>Воспользуйте карточкой для запоминания и пополнения словарных запасов!</p>
             </div>
