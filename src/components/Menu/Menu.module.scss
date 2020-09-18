@@ -1,0 +1,11 @@
+.menu {
+    display: flex;
+    justify-content: space-between;
+}
+.menu li {
+    list-style-type: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+}
