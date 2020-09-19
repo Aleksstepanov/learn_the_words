@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import ContentBlock from './components/ContentBlock/ContentBlock';
 import HeaderBlock from './components/HeaderBlocks/HeaderBlock'
 import FooterBlock from './components/FooterBlock/FooterBlock';
@@ -8,6 +7,7 @@ import Header from './components/Header/Header';
 import Paragraph from './components/Paragraph/Paragraph';
 import Card from './components/Card/Card';
 import wordList from './Data/wordsList';
+import Nav from './components/Nav/Nav';
 
 const App = () => {
   const Cards = {
@@ -15,7 +15,9 @@ const App = () => {
   }
   return (
     <React.Fragment>
+    <Nav />
     <HeaderBlock>
+      
       <Header>
         Учите слова онлайн
       </Header>
