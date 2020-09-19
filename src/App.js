@@ -4,6 +4,8 @@ import ContentBlock from './components/ContentBlock/ContentBlock';
 import HeaderBlock from './components/HeaderBlocks/HeaderBlock'
 import FooterBlock from './components/FooterBlock/FooterBlock';
 import footerContent from './Data/footerContent';
+import Header from './components/Header/Header';
+import Paragraph from './components/Paragraph/Paragraph';
 
 const App = () => {
   const Cards = {
@@ -11,7 +13,14 @@ const App = () => {
   }
   return (
     <React.Fragment>
-    <HeaderBlock title="Учите слова онлайн!"/>
+    <HeaderBlock>
+      <Header>
+        Учите слова онлайн
+      </Header>
+      <Paragraph>
+        Воспользуйте карточкой для запоминания и пополнения словарных запасов!
+        </Paragraph> 
+    </HeaderBlock>
     <ContentBlock {...Cards}/>
     <FooterBlock {...footerContent}/>
     </React.Fragment>

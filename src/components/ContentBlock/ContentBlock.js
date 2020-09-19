@@ -18,7 +18,7 @@ const ContentBlock = ( {col} ) => {
                     <p>{Object.values(Desc)[i]}</p>
                 </div>
                 <div className="card-action">
-                  <a>This is a link</a>
+                <p>This is a link</p>
                 </div>
              </div>
         )
