@@ -1,4 +1,4 @@
-export const wordsList = [
+const wordsList = [
     {
         eng: 'between',
         rus: 'между'
@@ -44,3 +44,5 @@ export const wordsList = [
         rus: 'покидать'
     },
 ];
+
+export default wordsList;
