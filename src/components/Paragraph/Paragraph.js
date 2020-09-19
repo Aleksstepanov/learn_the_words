@@ -3,7 +3,7 @@ import style from './Paragraph.module.scss';
 
 const Paragraph = ({children}) => {
     return (
-        <p className={style.paragraph}>{ children }/</p>
+        <p className={style.paragraph}>{ children }</p>
     )
 }
 

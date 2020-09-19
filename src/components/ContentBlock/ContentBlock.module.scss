@@ -3,11 +3,7 @@
 .card__wraper {
     display: flex;
     flex-wrap: wrap;
-}
-.card {
-    width: 33%;
-}
-.card img {
-    object-fit: cover;
-    height: 200px;
+    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
 }

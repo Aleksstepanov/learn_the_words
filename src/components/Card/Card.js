@@ -23,7 +23,7 @@ class Card extends React.Component {
             <div className={ classNames(style.card, { [style.done]: done }) }
              onClick={this.onCardClick}
             >
-                <div className={style.cardInner}>
+                <div className={ classNames(style.cardInner)}>
                     <div className={style.cardFront}>
                         { eng }
                     </div>
