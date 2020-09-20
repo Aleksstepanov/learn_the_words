@@ -43,6 +43,10 @@ const wordsList = [
         eng: 'leave',
         rus: 'покидать'
     },
+    {
+        eng: 'home',
+        rus: 'дом'
+    },
 ];
 
 export default wordsList;
