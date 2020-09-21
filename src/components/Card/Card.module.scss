@@ -54,17 +54,31 @@
   color: white;
   transform: rotateY(180deg);
 }
-.icons {
+.iconsCheck {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-left: 10px;
-  margin-right: 30px;
+  margin-right: 5px;
   i {
     border: 1px solid black;
   }
 }
-.icons i:hover {
+.iconsCheck i:hover {
+  border: 2px solid #bbdefb;
+  color: #bbdefb;
+}
+.iconsClear {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 20px;
+  i {
+    border: 1px solid black;
+  }
+}
+.iconsClear i:hover {
   border: 2px solid #bbdefb;
   color: #bbdefb;
 }

@@ -24,6 +24,10 @@ class Card extends React.Component {
         });
         this.onCardClick();
     }
+    onDeleteClick = () => {
+        console.log('level 1');
+        this.props.onDeleted();
+    }
     render() {
         const { rus, eng } = this.props;
         const { done } = this.state;
@@ -47,8 +51,11 @@ class Card extends React.Component {
                         { rus }
                     </div>
                 </div>
-                <div className = {classNames(style.icons)}>
-                <i className="material-icons" onClick={this.onRememberClick}>check</i>
+                <div className = {classNames(style.iconsCheck)}>
+                    <i className="material-icons" onClick={this.onRememberClick}>check</i>
+                </div>
+                <div className = {classNames(style.iconsClear)}>
+                    <i className="material-icons" onClick={this.onDeleteClick}>clear</i>
                 </div>
             </div>
         )
