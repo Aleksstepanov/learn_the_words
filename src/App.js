@@ -12,6 +12,18 @@ class App extends Component {
   state = {
     wordArr: wordList,
   }
+  onDeletedItem = (id) => {
+    this.setState(({wordArr}) => {
+      const idx = wordArr.findIndex((item) => item.id === id);
+      const newWordArr = [
+        ...wordArr.slice(0, idx),
+        ...wordArr.slice(idx + 1)
+      ]
+      return {
+        wordArr: newWordArr,
+      }
+    })
+  }
   render() {
     const { wordArr } = this.state;
     return (
@@ -26,7 +38,7 @@ class App extends Component {
           Воспользуйте карточкой для запоминания и пополнения словарных запасов!
         </Paragraph> 
       </HeaderBlock>
-      <ContentBlock {...wordArr} onDeletedItem={ (id) => console.log('level 3', id) }/>
+      <ContentBlock {...wordArr} onDeletedItem={ this.onDeletedItem }/>
       <FooterBlock {...footerContent}/>
       </React.Fragment>
     )
