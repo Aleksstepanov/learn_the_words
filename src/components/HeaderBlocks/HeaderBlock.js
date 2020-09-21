@@ -2,7 +2,6 @@ import React from 'react';
 import style from './HeaderBlock.module.scss'
 
 const HeaderBlock = ({ highBackground = false, children}) => {
-    console.log(children);
     const styleCover = highBackground ? { backgroundImage: 'none'} : {};
     return (
         <>

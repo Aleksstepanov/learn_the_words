@@ -1,7 +1,7 @@
 import React from 'react';
-import '../../../node_modules/materialize-css/dist/css/materialize.min.css';
 import style from './Nav.module.scss';
-//import classNames from 'classnames';
+import '../../../node_modules/materialize-css/dist/css/materialize.min.css';
+import classNames from 'classnames';
 
 class Nav extends React.Component {
     state = {
@@ -17,13 +17,13 @@ class Nav extends React.Component {
         }
         return (
             <nav className= {style.nav}>
-                <div className= "nav-wrapper light-blue lighten-4">
+                <div className= { classNames('nav-wrapper', 'blue', 'lighten-2', style.nav__wrapper) }>
                   <ul id="nav-mobile" className="right hide-on-med-and-down">
                     {this.state.lang ? menu.rus.map((elem, index) => <li key={index}>{elem}</li>) : menu.eng.map((elem, index) => <li key={index}>{elem}</li>)}
                   </ul>
-                  <div className="switch">
-                    <label>
-                        RUS
+                  <div className={ classNames(style.switch__wrapper, "switch")}>
+                    <label className={ style.switch__text }>
+                        RUS 
                     <input type="checkbox" onClick={ this.onSwitchLang }/>
                     <span className="lever"></span>
                         ENG
