@@ -5,11 +5,24 @@ import classNames from 'classnames';
 class Card extends React.Component {
     state = {
         done: false,
+        isRemembered: false,
     }
     onCardClick = () => {
-        this.setState({
-            done: !this.state.done,
-        })
+        if (!this.state.isRemembered) {
+            this.setState(( {done} ) => {
+                return {
+                    done: !done,
+                }
+            })
+        }
+    }
+    onRememberClick = () => {
+        this.setState(( {isRemembered} ) => {
+            return {
+                isRemembered: !isRemembered,
+            }
+        });
+        this.onCardClick();
     }
     render() {
         const { rus, eng } = this.props;
@@ -20,10 +33,13 @@ class Card extends React.Component {
             cardClass.push(style.done);
         }
         return (
-            <div className={ classNames(style.card, { [style.done]: done }) }
-             onClick={this.onCardClick}
+            <div className={ classNames(style.card, { 
+                                                        [style.done]: this.state.done, 
+                                                        [style.isRemembered]: this.state.isRemembered
+                                                    }) }
+             
             >
-                <div className={ classNames(style.cardInner)}>
+                <div className={ classNames(style.cardInner) } onClick={ this.onCardClick }>
                     <div className={style.cardFront}>
                         { eng }
                     </div>
@@ -31,7 +47,9 @@ class Card extends React.Component {
                         { rus }
                     </div>
                 </div>
-                
+                <div className = {classNames(style.icons)}>
+                <i className="material-icons" onClick={this.onRememberClick}>check</i>
+                </div>
             </div>
         )
     }
