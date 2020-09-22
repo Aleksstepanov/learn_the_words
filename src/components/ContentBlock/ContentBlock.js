@@ -28,7 +28,8 @@ class ContentBlock extends Component {
         this.props.onAdd(this.state.value);
     }
     render() {
-        const {onDeletedItem, ...item} = this.props;
+        const {onDeletedItem, onAdd, ...item} = this.props;
+        console.log(item);
         return (
             <>
                 <div>
@@ -43,7 +44,7 @@ class ContentBlock extends Component {
                     ref={this.inputRef}
                     />
                 </div>
-                <a className={ classNames("waves-effect", "waves-light", "btn") }
+                <a className={ classNames("waves-effect", "waves-light", "btn", 'blue', 'lighten-2') }
                 onClick={ this.onSubmitForm }
                 >
                     Add New Word
@@ -52,7 +53,9 @@ class ContentBlock extends Component {
                 <div className={style.card__wraper}>
                     {
                         Object.values(item).map(({eng, rus, id}) => <Card 
-                                                                        eng={eng} rus={rus} key={id} 
+                                                                        eng={eng} 
+                                                                        rus={rus} 
+                                                                        key={id} 
                                                                         onDeleted={ () => onDeletedItem(id)
                                                                     }/>)
                     }
