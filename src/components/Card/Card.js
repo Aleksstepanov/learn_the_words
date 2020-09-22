@@ -25,7 +25,6 @@ class Card extends React.Component {
         this.onCardClick();
     }
     onDeleteClick = () => {
-        console.log('level 1');
         this.props.onDeleted();
     }
     render() {
