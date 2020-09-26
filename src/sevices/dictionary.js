@@ -1,10 +1,10 @@
-import auth from './auth';
-console.log(auth.API_KEY);
+const apiKey = process.env.REACT_APP_API_KEY;
+
 const getTranslateWord = async (text, lang = 'en-ru') => {
     try {
         const res = await fetch(`https://reactmarathon-api.netlify.app/api/translate?text=${text}&lang=${lang}`, {
         headers: {
-            'Authorization': auth.API_KEY,
+            'Authorization': apiKey,
         }});
         const body = await res.json();
         return body;
