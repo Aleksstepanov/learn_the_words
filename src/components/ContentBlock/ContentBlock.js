@@ -1,35 +1,44 @@
 import React, {Component} from 'react';
 import style from './ContentBlock.module.scss';
 import Card from '../Card/Card';
+import ProgressDeterminate from '../ProgressDeterminate/ProgressDeterminate';
+import ProgressIndeterminate from '../ProgressIndeterminate/ProgressIndeterminate';
 import classNames from 'classnames';
-import '../../../node_modules/materialize-css//dist/css/materialize.min.css';
-// const Cards = require.context('./img', true, /\.jpg$/);
-// const path = Cards.keys();
-// const image = path.map((elem) => Cards(elem));
-
+import getTranslateWord from '../../sevices/dictionary';
 class ContentBlock extends Component {
     state = {
         value: '',
         label: '',
+        isBusy: false,
     }
     handleInputChenge = (event) => {
         this.setState({
             value: event.target.value,
         });
     }
-    onSubmitForm = (event) => {
-        event.preventDefault();
-        this.setState(({ value }) => {
-            return {
-                label: value,
-                value: '',
-            }
-        });
-        this.props.onAdd(this.state.value);
+    getTheWord = async () => {
+        const getWord = await getTranslateWord(this.state.value);
+            this.setState(() => {
+                return {
+                    label: getWord.translate,
+                    value: '',
+                    isBusy: false,
+                }
+            });
+    }
+    onSubmitForm = async (event) => {
+        
+        if (this.state.value.length > 1) {
+            event.preventDefault();
+            this.setState({
+                isBusy: true,
+            }, this.getTheWord);
+            this.props.onAdd(this.state.label);
+        }
     }
     render() {
         const {onDeletedItem, onAdd, ...item} = this.props;
-        console.log(item);
+        const isBusy = this.state.isBusy;
         return (
             <>
                 <div>
@@ -39,10 +48,11 @@ class ContentBlock extends Component {
                     onSubmit={ this.onSubmitForm }
                 >
                 <div className={ classNames("input-field", "col", "s6", style.inputAdd) }>
-                    <input id="last_name" type="text" className={ classNames("validate") }
+                    <input id="new_word" type="text" className={ classNames("validate") }
                     value={ this.state.value } onChange={this.handleInputChenge}
                     ref={this.inputRef}
                     />
+                    <label htmlFor="new_word"> New word</label>
                 </div>
                 <a className={ classNames("waves-effect", "waves-light", "btn", 'blue', 'lighten-2') }
                 onClick={ this.onSubmitForm }
@@ -50,6 +60,10 @@ class ContentBlock extends Component {
                     Add New Word
                 </a>
                 </form>
+                {isBusy
+                    ?<ProgressIndeterminate />
+                    :<ProgressDeterminate />
+                }
                 <div className={style.card__wraper}>
                     {
                         Object.values(item).map(({eng, rus, id}) => <Card 
