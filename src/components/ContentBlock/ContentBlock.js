@@ -17,14 +17,31 @@ class ContentBlock extends Component {
         });
     }
     getTheWord = async () => {
-        const getWord = await getTranslateWord(this.state.value);
-            this.setState(() => {
-                return {
-                    label: getWord.translate,
-                    value: '',
-                    isBusy: false,
-                }
-            });
+        const RusValue = /^[а-яё]/i;
+        const EngValue = /^[a-z]/i;
+        
+        if (RusValue.test(this.state.value)) {
+            const getWord = await getTranslateWord(this.state.value, 'ru-en');
+        this.setState(() => {
+            return {
+                label: getWord.translate,
+                value: '',
+                isBusy: false,
+            }
+        });
+        }
+        else if (EngValue.test(this.state.value)) {
+            const getWord = await getTranslateWord(this.state.value);
+        this.setState(() => {
+            return {
+                label: getWord.translate,
+                value: '',
+                isBusy: false,
+            }
+        }); 
+        }
+        else console.log('Введите корректное слово!');
+        
     }
     onSubmitForm = async (event) => {
         
