@@ -1,20 +1,16 @@
 import React from 'react';
-import s from './HeaderBlock.module.scss'
-import Lang from '../Lang/Lang';
+import style from './HeaderBlock.module.scss'
 
-const HeaderBlock = ({ title, highBackground = false}) => {
+const HeaderBlock = ({ highBackground = false, children}) => {
     const styleCover = highBackground ? { backgroundImage: 'none'} : {};
     return (
         <>
-            <div className={s.cover} style = {styleCover}>
-            <div className={s.wrap}>
-                <Lang />
-                <h1 className={s.header}>{title}</h1>
-                <p className={s.descr}>Воспользуйте карточкой для запоминания и пополнения словарных запасов!</p>
+            <div className={style.cover} style = {styleCover}>
+            <div className={style.wrap}>
+                { Object.values(children) }
             </div>
-        </div>
+            </div>
         </>
-        
     )
 }
 

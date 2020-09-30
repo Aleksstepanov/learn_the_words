@@ -1,0 +1,30 @@
+.card__wraper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
+    max-width: 50%;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+.inputAdd {
+    width: 20%;
+    padding-right: 10px;
+}
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: 0 auto;
+}
+button {
+    padding-left: 20px;
+}
+.progress_wraper {
+    max-width: 20%;
+    margin: 0 auto;
+    width: 100%;
+}

@@ -1,0 +1,24 @@
+.logo {
+    font-size: 40px;
+    padding-left: 10px;
+}
+ul li {
+    margin-left: 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+.switch {
+    display: flex;
+    justify-content: flex-end;
+}
+.nav__wrapper {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+.switch__wrapper {
+    padding-left: 10px;
+}
+.switch__text {
+    color: #fff;
+}
